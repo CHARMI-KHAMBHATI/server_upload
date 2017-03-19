@@ -1,0 +1,35 @@
+<! DOCTYPE html>
+
+<html>
+	<head>
+		<script type='text/javascript'>
+			function preview_image(event) 
+			{
+			 var reader = new FileReader();
+			 reader.onload = function()
+			 {
+			  var output = document.getElementById('output_image');
+			  output.src = reader.result;
+			 }
+			 reader.readAsDataURL(event.target.files[0]);
+			}
+			</script>
+		<title>
+		My upload
+		</title>
+	</head>
+	
+	<body>
+	
+	<form id="file-form" action="getdata.php" method="post" enctype="multipart/form-data">
+	  upload a file:
+	  
+	  <input type="file" id="myFile" name="myFile" accept="image/*" onchange="preview_image(event)">
+	  <input type="submit" id="submit" name="submit" value="UPLOAD">
+	 <img id="output_image"/>
+	 </form>
+	 
+ 
+	</body>
+
+</html>
